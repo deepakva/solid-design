@@ -1,5 +1,8 @@
 package com.sdp.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -37,5 +40,13 @@ public class ProductController {
 			response.setCode(AUTH_FAILURE);
 		}
 		return response;
+	}
+	
+	@RequestMapping(value="/list", method = RequestMethod.GET)
+	public List<String> getAvailableProducts(){
+		List<String> availablePrds = new ArrayList<>();
+		availablePrds.add("7PAP");
+		availablePrds.add("UPMM");
+		return availablePrds;
 	}
 }
