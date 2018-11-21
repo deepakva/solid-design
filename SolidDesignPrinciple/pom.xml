@@ -60,5 +60,10 @@
 			<artifactId>jackson-databind</artifactId>
 			<version>${jackson.library}</version>
 		</dependency>
+		<dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.22</version>
+        </dependency>
 	</dependencies>
 </project>

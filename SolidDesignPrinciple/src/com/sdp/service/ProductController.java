@@ -1,5 +1,6 @@
 package com.sdp.service;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.sdp.dao.ProductDao;
 
 @RestController
 @RequestMapping("/purchase")
@@ -41,12 +44,14 @@ public class ProductController {
 		}
 		return response;
 	}
-	
-	@RequestMapping(value="/list", method = RequestMethod.GET)
-	public List<String> getAvailableProducts(){
+
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	public List<String> getAvailableProducts() throws SQLException {
 		List<String> availablePrds = new ArrayList<>();
 		availablePrds.add("7PAP");
 		availablePrds.add("UPMM");
+		ProductDao productDao = new ProductDao();
+		productDao.getConnection();
 		return availablePrds;
 	}
 }
